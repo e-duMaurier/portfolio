@@ -1,0 +1,37 @@
+# TODO - Complete deployment automation
+name: Deploy Static Site with rsync
+
+on:
+  push:
+    branches:
+      - main  # Change this to your default branch if necessary
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.VPS_KEY }}
+
+      - name: Sync files via rsync
+        run: |
+          rsync -avz --delete public/ ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/path/to/your/vps/public/
+        env:
+          RSYNC_RSH: 'ssh -p ${{ secrets.VPS_PORT }}'
+
+      - name: Execute remote commands via SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_KEY }}
+          port: ${{ secrets.VPS_PORT }}
+          script: |
+            cd /path/to/your/vps
+            ls -la  # Just an example command, you can replace it with your own commands.

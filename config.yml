@@ -1,12 +1,13 @@
 baseURL: "https://dumalabs.uk/"
 title: DumaLabs
 paginate: 5
-theme: PaperMod
+theme: "PaperModX"
 
 enableRobotsTXT: true
 buildDrafts: false
 buildFuture: false
 buildExpired: false
+pygmentsUseClasses: true  
 
 minify:
   minifyOutput: true
@@ -72,10 +73,10 @@ menu:
       name: Blog
       url: /blog/
       weight: 20    
-    - identifier: cybersecurity
-      name: CyberSecurity
-      url: /cybersecurity/
-      weight: 30
+#    - identifier: cybersecurity
+#      name: CyberSecurity
+#      url: /cybersecurity/
+#      weight: 30
     - identifier: techwhiskers
       name: TechWhiskers
       url: https://blog.techwhiskers.com

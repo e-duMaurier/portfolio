@@ -96,3 +96,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# Other files
+*.old
