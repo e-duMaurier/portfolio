@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Duma Labs UK</title>
+    <title>Duma Labs</title>
     <link>http://localhost:1313/</link>
-    <description>Recent content on Duma Labs UK</description>
+    <description>Recent content on Duma Labs</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Tue, 03 Dec 2024 23:42:02 +0000</lastBuildDate>
@@ -17,10 +17,24 @@
     </item>
     <item>
       <title>About Me</title>
-      <link>http://localhost:1313/about/about/</link>
+      <link>http://localhost:1313/about/</link>
       <pubDate>Tue, 03 Dec 2024 17:27:44 +0000</pubDate>
-      <guid>http://localhost:1313/about/about/</guid>
+      <guid>http://localhost:1313/about/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Hello, I&amp;rsquo;m Emma.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;I’m an experienced IT professional with over 7 years of technical support expertise and a fervent passion for modern IT environments. My journey in the world of technology began in the mid 1980&amp;rsquo;s when we got an Acorn Electron computer, and had to load games from cassette tapes, or type in all the code manually, from magazines.&lt;/p&gt;&#xA;&lt;p&gt;That early passion never faded, and developed in to building PCs, configuring home networks and getting some basic knowledge of programming with C++ and Pascal, in the late 1990&amp;rsquo;s.&#xA;Since then, I&amp;rsquo;ve continued with that passion, always wanted to learn and experience more. I&amp;rsquo;ve experienced more with programming languages C# and Java, I’ve honed a robust understanding of virtualisation technologies including Hyper-V, VMware ESXi &amp;amp; Workstation, Oracle VirtualBox, and Proxmox.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Blog</title>
+      <link>http://localhost:1313/blog-posts/</link>
+      <pubDate>Tue, 03 Dec 2024 17:27:44 +0000</pubDate>
+      <guid>http://localhost:1313/blog-posts/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Blog Posts&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Cyber Security</title>
+      <link>http://localhost:1313/cybersecurity/</link>
+      <pubDate>Tue, 03 Dec 2024 17:27:44 +0000</pubDate>
+      <guid>http://localhost:1313/cybersecurity/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Content Coming Soon!!&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
