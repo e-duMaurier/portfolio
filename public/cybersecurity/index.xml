@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cybersecurity on Duma Labs UK</title>
+    <link>http://localhost:1313/cybersecurity/</link>
+    <description>Recent content in Cybersecurity on Duma Labs UK</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 03 Dec 2024 23:42:02 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/cybersecurity/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Employee</title>
+      <link>http://localhost:1313/cybersecurity/writeups/employee/</link>
+      <pubDate>Tue, 03 Dec 2024 23:42:02 +0000</pubDate>
+      <guid>http://localhost:1313/cybersecurity/writeups/employee/</guid>
+      <description>&lt;h1 id=&#34;employee-of-the-year&#34;&gt;Employee of the Year&lt;/h1&gt;&#xA;&lt;p&gt;This is my write-up for the retired &lt;a href=&#34;https://blueteamlabs.online/&#34; title=&#34;Blue Team Labs Online&#34;&gt;Blue Team Labs Online&lt;/a&gt; challenge &amp;lsquo;&lt;a href=&#34;https://blueteamlabs.online/home/challenge/employee-of-the-year-df16bc36f3&#34; title=&#34;Employee of the Year&#34;&gt;Employee of the Year&lt;/a&gt;&amp;rsquo;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;scenario&#34;&gt;Scenario&lt;/h2&gt;&#xA;&lt;p&gt;On a Friday evening when you were in a mood to celebrate your weekend, your team was alerted with a new RCE vulnerability actively being exploited in the wild. You have been tasked with analysing and researching the sample to collect information for the weekend team.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
