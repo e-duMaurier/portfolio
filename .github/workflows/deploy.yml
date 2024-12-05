@@ -18,11 +18,19 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.VPS_KEY }}
 
+      - name: Log SSH setup completion
+        run: echo "SSH setup completed."
+
       - name: Sync files with rsync
         run: |
+          echo "Starting rsync..."
           rsync -avz -e 'ssh -v -p ${{ secrets.VPS_PORT }}' --delete public/ ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:${{ secrets.VPS_DEPLOY_PATH }}
+          echo "rsync completed."
         env:
           RSYNC_RSH: 'ssh -p ${{ secrets.VPS_PORT }}'
+
+      - name: Log rsync completion
+        run: echo "rsync step completed."
 
       - name: Execute remote commands via SSH
         uses: appleboy/ssh-action@master
@@ -32,4 +40,7 @@ jobs:
           key: ${{ secrets.VPS_KEY }}
           port: ${{ secrets.VPS_PORT }}
           script: |
+            echo "Starting remote commands..."
             ssh -v ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} -p ${{ secrets.VPS_PORT }} "cd ${{ secrets.VPS_DEPLOY_PATH }} && ls -la"
+            echo "Remote commands executed."
+
