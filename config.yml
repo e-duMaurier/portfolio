@@ -55,7 +55,7 @@ params:
     subtitle: "My personal portfolio and blog"
     buttons:
       - name: Blog
-        url: blog
+        url: blog-posts
       - name: About Me
         url: about
 

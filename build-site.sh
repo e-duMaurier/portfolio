@@ -9,25 +9,25 @@ if [ -z "$git_comment" ]; then
 fi
 
 # Run Hugo to build the site.
-echo "Building site..."
+echo -e "Building site..."
 hugo
-echo "Build finished.\n"
+echo -e "Build finished.\n"
 
 # Check Git Status
-echo "Checking Git Status..."
+echo -e "Checking Git Status..."
 git status
 
 # Add changes to Git
-echo "Adding changed files to git..."
+echo -e "Adding changed files to git..."
 git add .
-echo "All files added.\n"
+echo -e "All files added.\n"
 
 # Commit the changes
-echo "Commiting the changes..."
+echo -e "Commiting the changes..."
 git commit -m "$git_comment"
-echo "All changes commited.\n"
+echo -e "All changes commited.\n"
 
 # Push changes to GitHub repository
-echo "Pushing changes..."
+echo -e "Pushing changes..."
 git push origin main
-echo "Changes pushed.\nBuild will be live once GitHub action completes."
+echo -e "Changes pushed.\nBuild will be live once GitHub action completes."
