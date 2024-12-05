@@ -21,6 +21,9 @@ jobs:
       - name: Log SSH setup completion
         run: echo "SSH setup completed."
 
+      - name: Test SSH connection
+        run: ssh -v -o "StrictHostKeyChecking=no" -p ${{ secrets.VPS_PORT }} ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} echo "SSH connection test successful"
+
       - name: Sync files with rsync
         run: |
           echo "Starting rsync..."
