@@ -1,0 +1,100 @@
+baseURL: "https://dumalabs.uk/"
+title: DumaLabs
+paginate: 5
+theme: "PaperModX"
+
+buildDrafts: false
+buildExpired: false
+buildFuture: false
+enableEmoji: true
+enableRobotsTXT: true
+pluralizelisttitles: false
+pygmentsUseClasses: true
+ 
+
+minify:
+  minifyOutput: true
+
+params:
+  env: production
+  title: "Duma Labs"
+  description: "My personal portfolio, and blog."
+  keywords: [Blog, Portfolio, Projects, Cyber Security]
+  author: Emma
+  DateFormat: "January 2, 2006"
+  defaultTheme: auto
+  disableThemeToggle: false
+  
+  mainSections:
+    - blog
+    - posts
+  disableAnchoredHeadings: true
+
+  showReadingTime: false
+  showShareButton: false
+  showPostNavLinks: false
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowWordCount: false
+  ShowRssButtonInSectionTermList: false
+  UseHugoToc: true
+  disableSpecial1stPost: false
+  disableScrollToTop: false
+  comments: false
+  hidemeta: false
+  hideSummary: false
+  showtoc: false
+  tocopen: false
+
+  label:
+    text: "DumaLabs"
+
+  profileMode:
+    enabled: true # needs to be explicitly set
+    title: "Emma du Maurier"
+    subtitle: "My personal portfolio and blog"
+    buttons:
+      - name: Blog
+        url: blog
+      - name: About Me
+        url: about
+
+#  socialIcons:
+#    - name: github-simple
+#      url: "https://github.com/reorx/hugo-PaperModX"
+#    - name: rss-simple
+#      url: "index.xml"
+
+menu:
+  main:
+    - identifier: about
+      name: About
+      url: /about/
+      weight: 1
+    - identifier: blog
+      name: Blog
+      url: /blog-posts/
+      weight: 2    
+#    - identifier: cybersecurity
+#      name: CyberSecurity
+#      url: /cybersecurity/
+#      weight: 3
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+taxonomies:
+  category: categories
+  tag: tags
+  series: series
+
+markup:
+  highlight:
+    noClasses: false
+    anchorLineNos: false
+    codeFences: true
+    guessSyntax: true
+    lineNos: true
