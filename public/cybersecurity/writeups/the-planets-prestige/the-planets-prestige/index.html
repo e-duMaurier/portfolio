@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html><head>
+<html><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <title>The Planet&#39;s Prestige</title>
     <meta charset="utf-8">
     <meta name="description"  content='My personal portfolio and blog' />
-    <meta name="dc.relation" content="https://dumalabs.uk/" />
+    <meta name="dc.relation" content="http://localhost:1313/" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#1A94D2" />
 
     
 
     
-    <link rel="stylesheet" href="../../../css/styles.min.css" media="screen">
+    <link rel="stylesheet" href="../../../../css/styles.min.css" media="screen">
  
     
-    <link rel='shortcut icon' type='image/x-icon' href='../../../favicon.ico' />
+    <link rel='shortcut icon' type='image/x-icon' href='../../../../favicon.ico' />
 
     
 
@@ -27,7 +27,7 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link  " href="https://dumalabs.uk/">Home</a>
+            <a class="nav-link  " href="http://localhost:1313/">Home</a>
           </li>
 
           
@@ -35,7 +35,7 @@
           
           <li class="nav-item">
             <a class='nav-link '
-              href="https://dumalabs.uk/aboutme/">
+              href="http://localhost:1313/aboutme/">
               About Me
             </a>
           </li>
@@ -43,7 +43,7 @@
           
           <li class="nav-item">
             <a class='nav-link '
-              href="https://dumalabs.uk/blog/">
+              href="http://localhost:1313/blog/">
               Blog
             </a>
           </li>
@@ -59,13 +59,13 @@
               
               <li>
                 <a class='dropdown-item  '
-                  href="../../../cybersecurity/certifications/">
+                  href="../../../../cybersecurity/certifications/">
                   Certifications</a>
               </li>
               
               <li>
                 <a class='dropdown-item  '
-                  href="../../../cybersecurity/writeups">
+                  href="../../../../cybersecurity/writeups">
                   Write-Ups</a>
               </li>
               
@@ -93,10 +93,10 @@ The zip file contained only one file, an email file &lsquo;A Hope to CoCanDa.eml
 <p><strong><strong>Finding the Email Service Domain:</strong></strong><br>
 I first searched the text representation of the email for the word &lsquo;Received&rsquo; so that I could quickly scan the document for any reference to the originating domain.<br>
 I find the line &lsquo;Received: from localhost (emkei[.]cz. [93[.]99[.]104[.]210])&rsquo; which indicated the email service used was emkei[.]cz</p>
-<p><img src="00_domain.jpg" alt="alt"></p>
+<p><img src="https://blog.techwhiskers.com/content/images/2024/11/00_domain.cleaned.png" alt=""></p>
 <p><strong><strong>The Reply-To Email Address:</strong></strong><br>
 Searching through the document for &lsquo;Reply-To&rsquo; pointed me to the email address egeja3921[@]pashter[.]com</p>
-<p><img src="01_reply_to.jpg" alt="alt"></p>
+<p><img src="https://blog.techwhiskers.com/content/images/2024/11/01_reply_to.cleaned.png" alt=""></p>
 <p><strong><strong>Email Attachments:</strong></strong><br>
 Opening the email in a mail application, I could now see the message content in the email.</p>
 <blockquote>
@@ -111,17 +111,17 @@ Lol😂</p></blockquote>
 <p><strong><strong>Extracting the Attachment:</strong></strong><br>
 Checking the downloaded file from the email with the <code>file</code> command, the PDF file is actually a zip file, that has been renamed.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>file PuzzleToCoCanDa.pdf
-</span></span></code></pre></div><p><img src="04_not_pdf.jpg" alt="alt"></p>
+</span></span></code></pre></div><p><img src="https://blog.techwhiskers.com/content/images/2024/11/04_not_pdf.cleaned.png" alt=""></p>
 <p>I renamed the PDF document to a zip file, then extracted the contents. This contained 3 new files, named &lsquo;DaughtersCrown&rsquo;, &lsquo;GoodJobMajor&rsquo; and &lsquo;Money.xlsx&rsquo;.<br>
 Using <code>file filename</code> again to check each file, &lsquo;DaughtersCrown&rsquo; returns as a JPEG image, &lsquo;GoodJobMajor&rsquo; is a PDF document, and &lsquo;Money.xlsx&rsquo; shows it&rsquo;s a Microsoft Excel 2007+ document.</p>
 <p><strong><strong>Finding the Author:</strong></strong><br>
 With the files extracted from the attachment, I then ran each file with the exif tool, and &lsquo;GoodJobMajor&rsquo; shows that the PDF has the author metadata still attached, showing the author as &lsquo;Pestero Negeja&rsquo;</p>
-<p><img src="05_author.jpg" alt="alt"></p>
+<p><img src="https://blog.techwhiskers.com/content/images/2024/11/05_author.cleaned.png" alt=""></p>
 <p><strong><strong>Discovering the Location:</strong></strong><br>
 I wanted to find whatever information I could from &lsquo;Money.xlsx&rsquo; without opening it directly, so I extracted the file to another directory. Within this directory, inside the &lsquo;xl&rsquo; directory, after opening &lsquo;sharedStrings.xml&rsquo; in a text editor, there is an entry that appears to be base64 encoded text.</p>
-<p><img src="06_base64.jpg" alt="alt"></p>
+<p><img src="https://blog.techwhiskers.com/content/images/2024/11/06_base64.cleaned.png" alt=""></p>
 <p>Using CyberChef, I decoded this string to its plaintext value - &lsquo;The Martian Colony, Beside Interplanetary Spaceport.&rsquo;</p>
-<p><img src="07_location.jpg" alt="alt"></p>
+<p><img src="https://blog.techwhiskers.com/content/images/2024/11/07_location.cleaned.png" alt=""></p>
 <p><strong><strong>Bot Domain:</strong></strong><br>
 Based on the domain in the reply-to email address, I believed this would also be the likely domain of the C&amp;C to control the bots, and would be hosted at pashter[.]com</p>
 <h1 id="challenge-questions-and-answers">Challenge Questions and Answers:</h1>
@@ -135,9 +135,8 @@ Based on the domain in the reply-to email address, I believed this would also be
 </ol>
 <h1 id="references">References:</h1>
 <ul>
-<li><a href="https://blueteamlabs.online/">https://blueteamlabs.online/</a></li>
-<li><a href="https://www.securityblue.team/">https://www.securityblue.team/</a></li>
-<li><a href="https://gchq.github.io/CyberChef/">https://gchq.github.io/CyberChef/</a></li>
+<li><a href="https://gchq.github.io/CyberChef/">CyberChef</a></li>
+<li><a href="https://blueteamlabs.online/">Blue Team Labs Online</a></li>
 </ul>
 
 </div>
@@ -156,7 +155,7 @@ Based on the domain in the reply-to email address, I believed this would also be
   
   
 
-  <script src="../../../js/bundle.min.js" defer></script>
+  <script src="../../../../js/bundle.min.js" defer></script>
 </footer>
 </body>
 </html>

@@ -30,12 +30,12 @@ The zip file contained only one file, an email file 'A Hope to CoCanDa.eml', and
 I first searched the text representation of the email for the word 'Received' so that I could quickly scan the document for any reference to the originating domain.  
 I find the line 'Received: from localhost (emkei[.]cz. [93[.]99[.]104[.]210])' which indicated the email service used was emkei[.]cz
 
-![](https://blog.techwhiskers.com/content/images/2024/11/00_domain.cleaned.png)
+![alt](00_domain.jpg)
 
 ****The Reply-To Email Address:****  
 Searching through the document for 'Reply-To' pointed me to the email address egeja3921[@]pashter[.]com
 
-![](https://blog.techwhiskers.com/content/images/2024/11/01_reply_to.cleaned.png)
+![alt](01_reply_to.jpg)
 
 ****Email Attachments:****  
 Opening the email in a mail application, I could now see the message content in the email.
@@ -57,7 +57,7 @@ Checking the downloaded file from the email with the `file` command, the PDF fil
 file PuzzleToCoCanDa.pdf
 ```
 
-![](https://blog.techwhiskers.com/content/images/2024/11/04_not_pdf.cleaned.png)
+![alt](04_not_pdf.jpg)
 
 I renamed the PDF document to a zip file, then extracted the contents. This contained 3 new files, named 'DaughtersCrown', 'GoodJobMajor' and 'Money.xlsx'.  
 Using `file filename` again to check each file, 'DaughtersCrown' returns as a JPEG image, 'GoodJobMajor' is a PDF document, and 'Money.xlsx' shows it's a Microsoft Excel 2007+ document.  
@@ -65,16 +65,16 @@ Using `file filename` again to check each file, 'DaughtersCrown' returns as a JP
 ****Finding the Author:****  
 With the files extracted from the attachment, I then ran each file with the exif tool, and 'GoodJobMajor' shows that the PDF has the author metadata still attached, showing the author as 'Pestero Negeja'
 
-![](https://blog.techwhiskers.com/content/images/2024/11/05_author.cleaned.png)
+![alt](05_author.jpg)
 
 ****Discovering the Location:****  
 I wanted to find whatever information I could from 'Money.xlsx' without opening it directly, so I extracted the file to another directory. Within this directory, inside the 'xl' directory, after opening 'sharedStrings.xml' in a text editor, there is an entry that appears to be base64 encoded text.
 
-![](https://blog.techwhiskers.com/content/images/2024/11/06_base64.cleaned.png)
+![alt](06_base64.jpg)
 
 Using CyberChef, I decoded this string to its plaintext value - 'The Martian Colony, Beside Interplanetary Spaceport.'
 
-![](https://blog.techwhiskers.com/content/images/2024/11/07_location.cleaned.png)
+![alt](07_location.jpg)
 
 ****Bot Domain:****  
 Based on the domain in the reply-to email address, I believed this would also be the likely domain of the C&C to control the bots, and would be hosted at pashter[.]com
@@ -90,5 +90,6 @@ Based on the domain in the reply-to email address, I believed this would also be
 
 # References:
 
-- [CyberChef](https://gchq.github.io/CyberChef/)
-- [Blue Team Labs Online](https://blueteamlabs.online/)
+- https://blueteamlabs.online/
+- https://www.securityblue.team/
+- https://gchq.github.io/CyberChef/
