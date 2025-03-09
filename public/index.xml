@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home on Duma Labs</title>
+    <link>https://example.org/</link>
+    <description>Recent content in Home on Duma Labs</description>
+    <generator>Hugo</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Fri, 31 Jan 2025 22:33:46 +0000</lastBuildDate>
+    <atom:link href="https://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Planet&#39;s Prestige</title>
+      <link>https://example.org/cybersecurity/writeups/the-planets-prestige/</link>
+      <pubDate>Sun, 10 Nov 2024 22:06:33 +0000</pubDate>
+      <guid>https://example.org/cybersecurity/writeups/the-planets-prestige/</guid>
+      <description>&lt;p&gt;This is my write-up for &amp;lsquo;The Planet&amp;rsquo;s Prestige&amp;rsquo;. This is a CTF-Like challenge, that is now &amp;lsquo;Retired&amp;rsquo;, on the &lt;a href=&#34;https://blueteamlabs.online/home&#34;&gt;Blue Team Labs Online&lt;/a&gt; cybersecurity practice and challenge platform.&lt;/p&gt;&#xA;&lt;p&gt;When challenges are retired, this means that leaderboard points are not awarded, but then write-ups for the challenge are permitted to be made public.&lt;br&gt;&#xA;I have only recently received a certification for cybersecurity, and I am using this platform as part of my learning experience to complete challenges and tasks. This is in an effort to better prepare me as I start to look into progressing in to the field of cybersecurity for a career.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>About Me</title>
+      <link>https://example.org/aboutme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/aboutme/</guid>
+      <description>&lt;h1 align=&#34;center&#34;&gt;About Me&lt;/h1&gt;&#xA;&#xA;&lt;h2&gt;Hello, I&#39;m Emma.&lt;/h2&gt;&#xA;&#xA;&lt;p&gt;I’m an experienced IT professional with over 7 years of technical support expertise and a fervent passion for modern IT environments. My journey in the world of technology began in the mid 1980’s when we got an Acorn Electron computer, and had to load games from cassette tapes, or type in all the code manually, from magazines.&lt;/p&gt;&#xA;&lt;p&gt;That early passion never faded, and developed in to building PCs, configuring home networks and getting some basic knowledge of programming with C++ and Pascal, in the late 1990’s. Since then, I’ve continued with that passion, always wanted to learn and experience more. I’ve experienced more with programming languages C# and Java, I’ve honed a robust understanding of virtualisation technologies including Hyper-V, VMware ESXi &amp; Workstation, Oracle VirtualBox, and Proxmox.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Certifications</title>
+      <link>https://example.org/cybersecurity/certifications/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/cybersecurity/certifications/</guid>
+      <description>&lt;h1 align=&#34;center&#34;&gt;Certifications&lt;/h1&gt;&#xA;&#xA;&lt;h2 align=&#34;center&#34;&gt;Coming soon(?)&lt;/h2&gt;</description>
+    </item>
+  </channel>
+</rss>

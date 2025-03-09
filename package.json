@@ -1,0 +1,14 @@
+{
+  "name": "dumalabs-blog",
+  "version": "1.0.0",
+  "description": "Personal portfolio and blog",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Emma du Maurier",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.3"
+  }
+}

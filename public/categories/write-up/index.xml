@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Write-Up on Duma Labs</title>
+    <link>https://example.org/categories/write-up/</link>
+    <description>Recent content in Write-Up on Duma Labs</description>
+    <generator>Hugo</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Fri, 31 Jan 2025 22:33:46 +0000</lastBuildDate>
+    <atom:link href="https://example.org/categories/write-up/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Planet&#39;s Prestige</title>
+      <link>https://example.org/cybersecurity/writeups/the-planets-prestige/</link>
+      <pubDate>Sun, 10 Nov 2024 22:06:33 +0000</pubDate>
+      <guid>https://example.org/cybersecurity/writeups/the-planets-prestige/</guid>
+      <description>&lt;p&gt;This is my write-up for &amp;lsquo;The Planet&amp;rsquo;s Prestige&amp;rsquo;. This is a CTF-Like challenge, that is now &amp;lsquo;Retired&amp;rsquo;, on the &lt;a href=&#34;https://blueteamlabs.online/home&#34;&gt;Blue Team Labs Online&lt;/a&gt; cybersecurity practice and challenge platform.&lt;/p&gt;&#xA;&lt;p&gt;When challenges are retired, this means that leaderboard points are not awarded, but then write-ups for the challenge are permitted to be made public.&lt;br&gt;&#xA;I have only recently received a certification for cybersecurity, and I am using this platform as part of my learning experience to complete challenges and tasks. This is in an effort to better prepare me as I start to look into progressing in to the field of cybersecurity for a career.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
