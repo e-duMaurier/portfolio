@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html><head>
+    <title>Employee of the Year</title>
+    <meta charset="utf-8">
+    <meta name="description"  content='My personal portfolio and blog' />
+    <meta name="dc.relation" content="https://dumalabs.uk/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#1A94D2" />
+
+    
+
+    
+    <link rel="stylesheet" href="../../../css/styles.min.css" media="screen">
+ 
+    
+    <link rel='shortcut icon' type='image/x-icon' href='../../../favicon.ico' />
+
+    
+
+
+
+</head><body><div class="jumbotron text-center">
+  <h1 class="display-4">Duma Labs</h1>
+
+  <div class="d-flex justify-content-center">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link  " href="https://dumalabs.uk/">Home</a>
+          </li>
+
+          
+          
+          
+          <li class="nav-item">
+            <a class='nav-link '
+              href="https://dumalabs.uk/aboutme/">
+              About Me
+            </a>
+          </li>
+           
+          
+          <li class="nav-item">
+            <a class='nav-link '
+              href="https://dumalabs.uk/blog/">
+              Blog
+            </a>
+          </li>
+           
+          
+          <li class="nav-item dropdown">
+            <a class='nav-link dropdown-toggle  '
+              href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Cybersecurity
+            </a>
+
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              
+              <li>
+                <a class='dropdown-item  '
+                  href="../../../cybersecurity/certifications/">
+                  Certifications</a>
+              </li>
+              
+              <li>
+                <a class='dropdown-item  '
+                  href="../../../cybersecurity/writeups">
+                  Write-Ups</a>
+              </li>
+              
+            </ul>
+          </li>
+
+           
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div><div id="content">
+
+<div class="container pb-5">
+  <p>This is my write-up for the retired Blue Team Labs Online challenge &lsquo;Employee of the Year&rsquo;.</p>
+<h2 id="scenario">Scenario:</h2>
+<p>On a Friday evening when you were in a mood to celebrate your weekend, your team was alerted with a new RCE vulnerability actively being exploited in the wild. You have been tasked with analysing and researching the sample to collect information for the weekend team.</p>
+<h2 id="process-of-investigation">Process of Investigation:</h2>
+<p>This challenge took some additional work before I could start work on the investigation. After downloading and extracting the contents of the challenge zip file, there was just one file, &lsquo;recoverfiles.dd&rsquo;.</p>
+<p>I have only been using Linux as my daily driver for about 6 months now, so there&rsquo;s a lot to learn, and I initially spent far too long trying to mount the image file, without success. Or rather, I managed to get the image file mounted, but it was always showing as empty, with no folder structure, and no files.
+It was while I was trying to research why the image was showing empty while mounted, I discovered, that I could have saved a lot of time. I could have just used a simple command to verify what some data contained may be, and so I did just that.</p>
+<p>Using &lsquo;strings recoverfiles.dd&rsquo; I could see some information from the disk image.
+While a lot of the data is unreadable, due to the file being a binary file, there was some readable text, some filenames, and folders.</p>
+<p><img src="00_strings.jpg" alt=""></p>
+<p>Some of this data can be extracted with scalpel, but first the configuration file would need to be edited, so that the scalpel application can recover .gif image types, by removing the hash &lsquo;#&rsquo; comment indicators.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nano /etc/scalpel/scalpel.conf
+</span></span></code></pre></div><p><img src="01_scalpel_config.jpg" alt=""></p>
+<p>After saving the changes to the configuration file, I created a directory to hold the recovered data, within my investigation directory, then ran scalpel against the disk image file.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir recovery
+</span></span><span style="display:flex;"><span>scalpel -o recovery recoverfiles.dd
+</span></span></code></pre></div><p>A directory containing the recovered files, and an audit text file, were created in the selected directory.
+In the gif-1-0 directory that was created, I saw a single .gif file.
+The file did not load all the frames when opening up in an image viewer, but there was a frame containing the text “GoodJobDefender”.</p>
+<p><img src="02_image_text.jpg" alt=""></p>
+<p>There wasn&rsquo;t much more I could get from using scalpel, unless I knew the extensions of the files that I wanted to retrieve.
+There was another tool that could be of use here, though. Photorec can help recover lost files from disk drives.</p>
+<p>I created a directory to store the recovery files, then I ran photorec against the &lsquo;recoverfiles.dd&rsquo; file.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir rec
+</span></span><span style="display:flex;"><span>sudo photorec recoverfiles.dd
+</span></span></code></pre></div><p>Photorec presents several menu options at each step through the process:</p>
+<ol>
+<li>Selecting the media source.</li>
+<li>Selecting disk or partition.</li>
+<li>The filesystem type.</li>
+<li>To analyse all space or free space.</li>
+<li>Destination directory to recover the files to.</li>
+</ol>
+<p>I now had several files recovered to look through.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> root root  93K Nov <span style="color:#ae81ff">14</span> 22:44 f0008848.gif
+</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> root root  13K Nov <span style="color:#ae81ff">14</span> 22:44 f0009040.pdf
+</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> root root 6.1K Feb <span style="color:#ae81ff">12</span>  <span style="color:#ae81ff">2021</span> f0009072.docx
+</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> root root 732K Nov <span style="color:#ae81ff">14</span> 22:44 f0016384.mp4
+</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> root root  17K Nov <span style="color:#ae81ff">14</span> 22:44 f0017848.png
+</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> root root 3.2K Nov <span style="color:#ae81ff">14</span> 22:45 report.xml
+</span></span></code></pre></div><p>I started with the other image file that had been recovered, &lsquo;f0017848.png&rsquo;. This image just contained the text “FLAG1:WELOVEBTLO”. I checked the metadata with exiftool of both of these files, and no additional information was recovered.</p>
+<p><img src="03_flag1.jpg" alt=""></p>
+<p>The metadata for the .docx file also didn&rsquo;t provide any helpful data. Running the file against oleid I saw that the file wasn&rsquo;t encrypted, contained no VBA or XLM macro’s or any external relationships. I still didn&rsquo;t want to open the file directly, though.</p>
+<p><img src="04_oleid.jpg" alt=""></p>
+<p>Listing the contents of the file with unzip from the terminal shows there is data to be extracted, now to get to that data using</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>unzip f0009072.docx
+</span></span></code></pre></div><p>With that, the files were extracted. The file I was interested in was &lsquo;document.xml&rsquo; as this would be the likely location for any text in the document to be stored.</p>
+<p><img src="06_docx_extracted.jpg" alt=""></p>
+<p>There was not much in the XML file, but there was text, which appeared to be base64 encoded.</p>
+<p><img src="07_document_xml.jpg" alt=""></p>
+<p>The text was base64 encoded, and after putting it through CyberChef, I got the plaintext result- ”FLAG2:ASOLIDDEFENDER”.</p>
+<p><img src="08_flag2.jpg" alt=""></p>
+<p>I didn&rsquo;t find any further information from the DOCX file, so now I moved on to the PDF document.</p>
+<p>I started with passing the file through exiftool, and the document author metadata is displayed as “FLAG3%3A%40BLU3T3AM%240LDI3R”.</p>
+<p><img src="09_pdf_author.jpg" alt=""></p>
+<p>This text would need to be cleaned up first, so I put the text in to the URL-formatted strings decoder from IT-Tools, and got the cleaned text “FLAG3:@BLU3T3AM$0LDI3R”.</p>
+<p>Finding the filesystem of the disk image took some work. I didn&rsquo;t see anything definitive for the filesystem when using photorec, and trying with fdisk, blkid, and kpartx, didn&rsquo;t provide the information either.
+However, after some web searching, I found an article on askubuntu.com that indicated using cfdisk could be the answer, and it was the answer, displaying ext4 as the filesystem after running</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cfdisk recoverfiles.dd
+</span></span></code></pre></div><p><img src="10_cfdisk.jpg" alt=""></p>
+<p>Finally, as I had done with all the other files, I started with &lsquo;f0016384.mp4&rsquo; by running exiftool against it.</p>
+<p>To find the original filename of the recovered mp4 file, I went back to my first step of this process, when getting some initial data from the image file. The strings gave me several filenames, and the number of files and the extensions of these files, matched the number of files, and extensions recovered.
+Looking at this, I could see that the mp4 file in the original results was named &lsquo;SBTCertifications.mp4&rsquo;.</p>
+<p><img src="11_filename.jpg" alt=""></p>
+<h1 id="challenge-questions-and-answers">Challenge Questions and Answers:</h1>
+<ol>
+<li>What is the text written on the recovered gif image? GoodJobDefender</li>
+<li>Submit Flag1: FLAG1:WELOVEBTLO</li>
+<li>Submit Flag2: FLAG2:ASOLIDDEFENDER</li>
+<li>Submit Flag3: FLAG3:@BLU3T3AM$0LDI3R</li>
+<li>What is the filesystem of the provided disk image? ext4</li>
+<li>What is the original filename of the recovered mp4 file? SBTCertifications.mp4</li>
+</ol>
+<h1 id="references">References:</h1>
+<ul>
+<li><a href="https://blueteamlabs.online/">https://blueteamlabs.online/</a></li>
+<li><a href="https://www.securityblue.team/">https://www.securityblue.team/</a></li>
+<li><a href="https://gchq.github.io/CyberChef/">https://gchq.github.io/CyberChef/</a></li>
+<li><a href="https://it-tools.tech/">https://it-tools.tech/</a></li>
+<li><a href="https://manpages.ubuntu.com/manpages/xenial/man8/kpartx.8.html">https://manpages.ubuntu.com/manpages/xenial/man8/kpartx.8.html</a></li>
+<li><a href="https://askubuntu.com/questions/1279716/how-to-open-dd-file-to-analyze-it">https://askubuntu.com/questions/1279716/how-to-open-dd-file-to-analyze-it</a></li>
+</ul>
+
+</div>
+
+
+        </div><footer class="footer fixed-bottom bg-dark">
+
+  <div class="col-12 col-md text-center text-md-center nav-link text-white"><a href=https://www.linkedin.com/in/emma-du-maurier>LinkedIn</a> | <a href=https://github.com/e-duMaurier>GitHub</a></div>
+
+  <div class="row footer-text">
+    <div class="col-12 col-md text-center text-md-left nav-link text-white">© Duma Labs 2025</div>
+  </div>
+
+  
+
+  
+  
+
+  <script src="../../../js/bundle.min.js" defer></script>
+</footer>
+</body>
+</html>
