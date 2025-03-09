@@ -82,15 +82,16 @@ Question 8 asked for the variable name that was wrong, causing the site to break
 
 # Challenge Questions and Answers:
 
-1. What is the email service used by the malicious actor? ```emkei[.]cz```
-2. What is the Reply-To email address? ```egeja3921[@]pashter[.]com```
-3. What is the filetype of the received attachment which helped to continue the investigation? ```.zip```
-4. What is the name of the malicious actor? ```Pestero Negeja```
-5. What is the location of the attacker in this Universe? ```The Martian Colony, Beside Interplanetary Spaceport```
-6. What could be the probable C&C domain to control the attacker’s autonomous bots? ```pashter[.]com```
+1. The HTML page used on securedocument[.]net is a decoy. Where was this webpage mirrored from, and what tool was used? ```61[.]221[.]12[.]26/cgi-sys/defaultwebpage[.]cgi, HTTrack```
+2. What is the full URL of the background image which is on the phishing landing page? ```hxxp[://]securedocument[.]net/secure/L0GIN/protected/login/portal/axCBhIt[.]png```
+3. What is the name of the php page which will process the stolen credentials? ```jeff.php```
+4. What is the SHA256 of the phishing kit in ZIP format? ```fa5b48```
+5. What email address is setup to receive the phishing credential logs? ```boris[.]smets[@]tfl-uk[.]co```
+6. What is the function called to produce the PHP variable which appears in the index1.html URL? ```Date().getTime()```
+7. What is the domain of the website which should appear once credentials are entered? ```office.com```
+8. There is an error in this phishing kit. What variable name is wrong causing the phishing site to break? ```userrr```
 
 # References:
 
 - https://blueteamlabs.online/
 - https://www.securityblue.team/
-- https://gchq.github.io/CyberChef/
