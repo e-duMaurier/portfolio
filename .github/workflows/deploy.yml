@@ -1,0 +1,49 @@
+name: Deploy Portfolio Site
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.VPS_KEY }}
+
+      - name: Log SSH setup completion
+        run: echo "SSH setup completed."
+
+      - name: Test SSH connection
+        run: ssh -v -o "StrictHostKeyChecking=no" -p ${{ secrets.VPS_PORT }} ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} echo "SSH connection test successful"
+
+      - name: Sync files with rsync
+        run: |
+          echo "Starting rsync..."
+          rsync -avz -e 'ssh -v -p ${{ secrets.VPS_PORT }}' --delete public/ ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:${{ secrets.VPS_DEPLOY_PATH }}
+          echo "rsync completed."
+        env:
+          RSYNC_RSH: 'ssh -p ${{ secrets.VPS_PORT }}'
+
+      - name: Log rsync completion
+        run: echo "rsync step completed."
+
+      - name: Execute remote commands via SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_KEY }}
+          port: ${{ secrets.VPS_PORT }}
+          script: |
+            echo "Starting remote commands..."
+            ssh -v ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} -p ${{ secrets.VPS_PORT }} "cd ${{ secrets.VPS_DEPLOY_PATH }} && ls -la"
+            echo "Remote commands executed."
+
