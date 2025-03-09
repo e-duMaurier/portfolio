@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Duma Labs</title>
-    <link>https://example.org/categories/</link>
+    <link>https://dumalabs.uk/categories/</link>
     <description>Recent content in Categories on Duma Labs</description>
     <generator>Hugo</generator>
     <language>en-uk</language>
     <lastBuildDate>Fri, 31 Jan 2025 22:33:46 +0000</lastBuildDate>
-    <atom:link href="https://example.org/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://dumalabs.uk/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cybersecurity</title>
-      <link>https://example.org/categories/cybersecurity/</link>
+      <link>https://dumalabs.uk/categories/cybersecurity/</link>
       <pubDate>Sun, 10 Nov 2024 22:06:33 +0000</pubDate>
-      <guid>https://example.org/categories/cybersecurity/</guid>
+      <guid>https://dumalabs.uk/categories/cybersecurity/</guid>
       <description></description>
     </item>
     <item>
       <title>Write-Up</title>
-      <link>https://example.org/categories/write-up/</link>
+      <link>https://dumalabs.uk/categories/write-up/</link>
       <pubDate>Sun, 10 Nov 2024 22:06:33 +0000</pubDate>
-      <guid>https://example.org/categories/write-up/</guid>
+      <guid>https://dumalabs.uk/categories/write-up/</guid>
       <description></description>
     </item>
   </channel>
