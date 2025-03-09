@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <title>Reaper</title>
+    <meta charset="utf-8">
+    <meta name="description"  content='My personal portfolio and blog' />
+    <meta name="dc.relation" content="http://localhost:1313/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#1A94D2" />
+
+    
+
+    
+    <link rel="stylesheet" href="../../../../css/styles.min.css" media="screen">
+ 
+    
+    <link rel='shortcut icon' type='image/x-icon' href='../../../../favicon.ico' />
+
+    
+
+
+
+</head><body><div class="jumbotron text-center">
+  <h1 class="display-4">Duma Labs</h1>
+
+  <div class="d-flex justify-content-center">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link  " href="http://localhost:1313/">Home</a>
+          </li>
+
+          
+          
+          
+          <li class="nav-item">
+            <a class='nav-link '
+              href="http://localhost:1313/aboutme/">
+              About Me
+            </a>
+          </li>
+           
+          
+          <li class="nav-item">
+            <a class='nav-link '
+              href="http://localhost:1313/blog/">
+              Blog
+            </a>
+          </li>
+           
+          
+          <li class="nav-item dropdown">
+            <a class='nav-link dropdown-toggle  '
+              href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Cybersecurity
+            </a>
+
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              
+              <li>
+                <a class='dropdown-item  '
+                  href="../../../../cybersecurity/certifications/">
+                  Certifications</a>
+              </li>
+              
+              <li>
+                <a class='dropdown-item  '
+                  href="../../../../cybersecurity/writeups">
+                  Write-Ups</a>
+              </li>
+              
+            </ul>
+          </li>
+
+           
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div><div id="content">
+
+<div class="container pb-5">
+  <p>This is my write-up of the retired &lsquo;Sherlock&rsquo; challenge, Reaper. Sherlocks are investigative challenges, to help develop and test defensive cybersecurity skills. Retired content on Hack The Box, has write-ups enabled, and I think that this would be a good opportunity to work through a challenge, and practice my documentation while working through the challenge.</p>
+<h2 id="scenario">Scenario:</h2>
+<p>Our SIEM alerted us to a suspicious logon event which needs to be looked at immediately. The alert details were that the IP Address and the Source Workstation name were a mismatch. You are provided a network capture and event logs from the surrounding time around the incident timeframe. Correlate the given evidence and report back to your SOC Manager.</p>
+<h2 id="process-of-investigation">Process of Investigation:</h2>
+<p>After extracting the provided zip file for the challenge, there are two files, &lsquo;Security.evtx&rsquo;, a Windows event log file, and a packet capture file, &rsquo;ntlmrelay.pcapng;.</p>
+<p>Opening the pcap file, then checking one of the DNS queries, the source IP address of 172.17.79.129 has the name Forela-Wkstn001.forela.local. I did not see any DNS records for Forela-Wkstn002, but when looking at the packet capture in Wireshark, I did see the NBNS (NetBIOS Name Service) protocol. So, I selected nbns as the display filter, and this indicated that Wkstn002 has the IP address of 172.17.79.136.</p>
+<p><img src="00_ip_one.png" alt="alt"></p>
+<p>Changing the display filter to smb2, and then using a string filter on the packet list for &lsquo;AUTH&rsquo;, Wireshark found a Session Setup Request, with an AUTH for the user Arthur Kyle. Knowing the IP address for Forela-Wkstn002, seeing the communication between this device and IP address 172.17.79.136, would indicate that this was the device being used by the attacker.</p>
+<p>Following the TCP stream from this event, and looking for any SMB2 Connect Request, I then saw numerous attempts to connect to the \DC01\Trip share. To find the port, I then set the display filter to narrow down the source IP to be the attackers&rsquo; device, and the destination to be the IP address of Forela-Wkstn001. Then I looked for TCP connections that were around the user login attempt. The TCP packets had the source port 40252, and reviewing the SMB packets, confirmed that these had the same port value.</p>
+<p>Using evtx_dump, I exported the Security.evtx file to a JSON file, then opened this in an editor.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>evtx_dump -f securityevents.json -o json Security.evtx
+</span></span></code></pre></div><p>Looking through the events, I found the record that contained port 40252, and this record displayed the LogonID, &lsquo;0x64a799&rsquo;, used to log in with the stolen user account.
+This record also confirmed the username, &lsquo;arthur.kyle&rsquo; and the workstation name &lsquo;FORELA-WKSTN002&rsquo;.</p>
+<p>As part of the key:value data that is stored as part of the record, the system time is also logged, so I could identify when the malicious logon occurred, at 2024-07-31T04:55:16.240589Z.</p>
+<p>Finally, after the logon, the next record referenced a share name that was accessed. This was confirmed to be part of the same sequence of events due to the matching port number, user name and logon ID as the previous record.
+The share that was accessed by the attacker was displayed as &lsquo;\\<em>\IPC$&rsquo;. Taking in to account &rsquo;escape&rsquo; characters in the code view of the JSON, this would be then converted to &lsquo;\</em>\IPC$&rsquo;</p>
+<h1 id="challenge-questions-and-answers">Challenge Questions and Answers:</h1>
+<ol>
+<li>What is the IP Address for Forela-Wkstn001? 172.17.79.129</li>
+<li>What is the IP Address for Forela-Wkstn002? 172.17.79.136</li>
+<li>Which user account&rsquo;s hash was stolen by attacker? Arthur Kyle</li>
+<li>What is the IP Address of Unknown Device used by the attacker to intercept credentials? 172.17.79.136</li>
+<li>What was the fileshare navigated by the victim user account? \DC01\Trip</li>
+<li>What is the source port used to logon to target workstation using the compromised account? 40252</li>
+<li>What is the Logon ID for the malicious session? 0x64a799</li>
+<li>The detection was based on the mismatch of hostname and the assigned IP Address.What is the workstation name and the source IP Address from which the malicious logon occur? FORELA-WKSTN002, 172.17.79.135</li>
+<li>At what UTC time did the malicious logon happen? 2024-07-31 04:55:16</li>
+<li>What is the share Name accessed as part of the authentication process by the malicious tool used by the attacker? \*\IPC$</li>
+</ol>
+<h1 id="references">References:</h1>
+<ul>
+<li><a href="https://github.com/omerbenamram/evtx">https://github.com/omerbenamram/evtx</a></li>
+</ul>
+
+</div>
+
+
+        </div><footer class="footer fixed-bottom bg-dark">
+
+  <div class="col-12 col-md text-center text-md-center nav-link text-white"><a href=https://www.linkedin.com/in/emma-du-maurier>LinkedIn</a> | <a href=https://github.com/e-duMaurier>GitHub</a></div>
+
+  <div class="row footer-text">
+    <div class="col-12 col-md text-center text-md-left nav-link text-white">© Duma Labs 2025</div>
+  </div>
+
+  
+
+  
+  
+
+  <script src="../../../../js/bundle.min.js" defer></script>
+</footer>
+</body>
+</html>

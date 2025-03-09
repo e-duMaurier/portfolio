@@ -6,8 +6,15 @@
     <description>Recent content in Write-Up on Duma Labs</description>
     <generator>Hugo</generator>
     <language>en-uk</language>
-    <lastBuildDate>Fri, 31 Jan 2025 22:33:46 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 09 Mar 2025 10:45:28 +0000</lastBuildDate>
     <atom:link href="https://dumalabs.uk/categories/write-up/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reaper</title>
+      <link>https://dumalabs.uk/cybersecurity/writeups/reaper/</link>
+      <pubDate>Mon, 11 Nov 2024 22:06:33 +0000</pubDate>
+      <guid>https://dumalabs.uk/cybersecurity/writeups/reaper/</guid>
+      <description>&lt;p&gt;This is my write-up of the retired &amp;lsquo;Sherlock&amp;rsquo; challenge, Reaper. Sherlocks are investigative challenges, to help develop and test defensive cybersecurity skills. Retired content on Hack The Box, has write-ups enabled, and I think that this would be a good opportunity to work through a challenge, and practice my documentation while working through the challenge.&lt;/p&gt;&#xA;&lt;h2 id=&#34;scenario&#34;&gt;Scenario:&lt;/h2&gt;&#xA;&lt;p&gt;Our SIEM alerted us to a suspicious logon event which needs to be looked at immediately. The alert details were that the IP Address and the Source Workstation name were a mismatch. You are provided a network capture and event logs from the surrounding time around the incident timeframe. Correlate the given evidence and report back to your SOC Manager.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>The Planet&#39;s Prestige</title>
       <link>https://dumalabs.uk/cybersecurity/writeups/the-planets-prestige/</link>
