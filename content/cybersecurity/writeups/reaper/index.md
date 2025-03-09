@@ -53,16 +53,16 @@ The share that was accessed by the attacker was displayed as '\\\\\\\\*\\IPC$'. 
 
 # Challenge Questions and Answers:
 
-1. What is the IP Address for Forela-Wkstn001? 172.17.79.129
-2. What is the IP Address for Forela-Wkstn002? 172.17.79.136
-3. Which user account's hash was stolen by attacker? Arthur Kyle
-4. What is the IP Address of Unknown Device used by the attacker to intercept credentials? 172.17.79.136
-5. What was the fileshare navigated by the victim user account? \\DC01\Trip
-6. What is the source port used to logon to target workstation using the compromised account? 40252
-7. What is the Logon ID for the malicious session? 0x64a799
-8. The detection was based on the mismatch of hostname and the assigned IP Address.What is the workstation name and the source IP Address from which the malicious logon occur? FORELA-WKSTN002, 172.17.79.135
-9. At what UTC time did the malicious logon happen? 2024-07-31 04:55:16
-10. What is the share Name accessed as part of the authentication process by the malicious tool used by the attacker? \\*\IPC$
+1. What is the IP Address for Forela-Wkstn001? ```172.17.79.129```
+2. What is the IP Address for Forela-Wkstn002? ```172.17.79.136```
+3. Which user account's hash was stolen by attacker? ```Arthur Kyle```
+4. What is the IP Address of Unknown Device used by the attacker to intercept credentials? ```172.17.79.136```
+5. What was the fileshare navigated by the victim user account? ```\\DC01\Trip```
+6. What is the source port used to logon to target workstation using the compromised account? ```40252```
+7. What is the Logon ID for the malicious session? ```0x64a799```
+8. The detection was based on the mismatch of hostname and the assigned IP Address.What is the workstation name and the source IP Address from which the malicious logon occur? ```FORELA-WKSTN002, 172.17.79.135```
+9. At what UTC time did the malicious logon happen? ```2024-07-31 04:55:16```
+10. What is the share Name accessed as part of the authentication process by the malicious tool used by the attacker? ```\\*\IPC$```
 
 # References:
 

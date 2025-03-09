@@ -6,8 +6,22 @@
     <description>Recent content in Labs on Duma Labs</description>
     <generator>Hugo</generator>
     <language>en-uk</language>
-    <lastBuildDate>Sun, 09 Mar 2025 11:45:05 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 09 Mar 2025 13:38:55 +0000</lastBuildDate>
     <atom:link href="https://dumalabs.uk/tags/labs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Phishy v1</title>
+      <link>https://dumalabs.uk/cybersecurity/writeups/phishy-v1/</link>
+      <pubDate>Fri, 22 Nov 2024 16:36:33 +0000</pubDate>
+      <guid>https://dumalabs.uk/cybersecurity/writeups/phishy-v1/</guid>
+      <description>&lt;p&gt;This is my write-up for investigation “Phishy v1” lab on Blue Team Labs Online. This lab is retired, so while completing it does not provide points that contribute towards the live leaderboard, but it does count towards achievements and write-ups are permitted to be made publicly available.&lt;/p&gt;&#xA;&lt;p&gt;❗&#xA;&lt;strong&gt;WARNING&lt;/strong&gt;&lt;br&gt;&#xA;The website and kit in this lab is REAL. Exercise caution when interacting with the malicious website and do not enter any sensitive information!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Nonyx</title>
+      <link>https://dumalabs.uk/cybersecurity/writeups/nonyx/</link>
+      <pubDate>Fri, 15 Nov 2024 18:33:33 +0000</pubDate>
+      <guid>https://dumalabs.uk/cybersecurity/writeups/nonyx/</guid>
+      <description>&lt;p&gt;This is my write-up for the retired Blue Team Labs Online investigation &amp;lsquo;Nonyx&amp;rsquo;.&#xA;The investigation is now retired, so it can still be completed towards achievements, and public write-ups are now permitted.&lt;/p&gt;&#xA;&lt;h2 id=&#34;scenario&#34;&gt;Scenario:&lt;/h2&gt;&#xA;&lt;p&gt;Purify Black Energy 2 from Shadowbrook’s digital infrastructure by reverse-engineering the malware’s code.&lt;/p&gt;&#xA;&lt;h2 id=&#34;process-of-investigation&#34;&gt;Process of Investigation:&lt;/h2&gt;&#xA;&lt;p&gt;When the investigation environment loads, there are a few files and directories already on the desktop. There were directories for the applications CyberChef and volatility, and files readme.txt file, and a &amp;lsquo;BlackEnergy.vnem&amp;rsquo;.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Employee of the Year</title>
       <link>https://dumalabs.uk/cybersecurity/writeups/employee-of-the-year/</link>

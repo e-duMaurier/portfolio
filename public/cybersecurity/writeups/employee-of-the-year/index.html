@@ -87,22 +87,22 @@
 <p>This challenge took some additional work before I could start work on the investigation. After downloading and extracting the contents of the challenge zip file, there was just one file, &lsquo;recoverfiles.dd&rsquo;.</p>
 <p>I have only been using Linux as my daily driver for about 6 months now, so there&rsquo;s a lot to learn, and I initially spent far too long trying to mount the image file, without success. Or rather, I managed to get the image file mounted, but it was always showing as empty, with no folder structure, and no files.
 It was while I was trying to research why the image was showing empty while mounted, I discovered, that I could have saved a lot of time. I could have just used a simple command to verify what some data contained may be, and so I did just that.</p>
-<p>Using &lsquo;strings recoverfiles.dd&rsquo; I could see some information from the disk image.
+<p>Using <code>strings recoverfiles.dd</code> I could see some information from the disk image.
 While a lot of the data is unreadable, due to the file being a binary file, there was some readable text, some filenames, and folders.</p>
 <p><img src="00_strings.jpg" alt=""></p>
-<p>Some of this data can be extracted with scalpel, but first the configuration file would need to be edited, so that the scalpel application can recover .gif image types, by removing the hash &lsquo;#&rsquo; comment indicators.</p>
+<p>Some of this data can be extracted with <code>scalpel</code>, but first the configuration file would need to be edited, so that the scalpel application can recover .gif image types, by removing the hash &lsquo;#&rsquo; comment indicators.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nano /etc/scalpel/scalpel.conf
 </span></span></code></pre></div><p><img src="01_scalpel_config.jpg" alt=""></p>
 <p>After saving the changes to the configuration file, I created a directory to hold the recovered data, within my investigation directory, then ran scalpel against the disk image file.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir recovery
 </span></span><span style="display:flex;"><span>scalpel -o recovery recoverfiles.dd
 </span></span></code></pre></div><p>A directory containing the recovered files, and an audit text file, were created in the selected directory.
-In the gif-1-0 directory that was created, I saw a single .gif file.
+In the <code>gif-1-0</code> directory that was created, I saw a single .gif file.
 The file did not load all the frames when opening up in an image viewer, but there was a frame containing the text “GoodJobDefender”.</p>
 <p><img src="02_image_text.jpg" alt=""></p>
 <p>There wasn&rsquo;t much more I could get from using scalpel, unless I knew the extensions of the files that I wanted to retrieve.
-There was another tool that could be of use here, though. Photorec can help recover lost files from disk drives.</p>
-<p>I created a directory to store the recovery files, then I ran photorec against the &lsquo;recoverfiles.dd&rsquo; file.</p>
+There was another tool that could be of use here, though. <code>Photorec</code> can help recover lost files from disk drives.</p>
+<p>I created a directory to store the recovery files, then I ran photorec against the <code>recoverfiles.dd</code> file.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir rec
 </span></span><span style="display:flex;"><span>sudo photorec recoverfiles.dd
 </span></span></code></pre></div><p>Photorec presents several menu options at each step through the process:</p>
@@ -120,11 +120,11 @@ There was another tool that could be of use here, though. Photorec can help reco
 </span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> root root 732K Nov <span style="color:#ae81ff">14</span> 22:44 f0016384.mp4
 </span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> root root  17K Nov <span style="color:#ae81ff">14</span> 22:44 f0017848.png
 </span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> root root 3.2K Nov <span style="color:#ae81ff">14</span> 22:45 report.xml
-</span></span></code></pre></div><p>I started with the other image file that had been recovered, &lsquo;f0017848.png&rsquo;. This image just contained the text “FLAG1:WELOVEBTLO”. I checked the metadata with exiftool of both of these files, and no additional information was recovered.</p>
+</span></span></code></pre></div><p>I started with the other image file that had been recovered, &lsquo;f0017848.png&rsquo;. This image just contained the text “FLAG1:WELOVEBTLO”. I checked the metadata with <code>exiftool</code> of both of these files, and no additional information was recovered.</p>
 <p><img src="03_flag1.jpg" alt=""></p>
-<p>The metadata for the .docx file also didn&rsquo;t provide any helpful data. Running the file against oleid I saw that the file wasn&rsquo;t encrypted, contained no VBA or XLM macro’s or any external relationships. I still didn&rsquo;t want to open the file directly, though.</p>
+<p>The metadata for the .docx file also didn&rsquo;t provide any helpful data. Running the file against <code>oleid</code> I saw that the file wasn&rsquo;t encrypted, contained no VBA or XLM macro’s or any external relationships. I still didn&rsquo;t want to open the file directly, though.</p>
 <p><img src="04_oleid.jpg" alt=""></p>
-<p>Listing the contents of the file with unzip from the terminal shows there is data to be extracted, now to get to that data using</p>
+<p>Listing the contents of the file with <code>unzip</code> from the terminal shows there is data to be extracted, now to get to that data using</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>unzip f0009072.docx
 </span></span></code></pre></div><p>With that, the files were extracted. The file I was interested in was &lsquo;document.xml&rsquo; as this would be the likely location for any text in the document to be stored.</p>
 <p><img src="06_docx_extracted.jpg" alt=""></p>
@@ -133,25 +133,25 @@ There was another tool that could be of use here, though. Photorec can help reco
 <p>The text was base64 encoded, and after putting it through CyberChef, I got the plaintext result- ”FLAG2:ASOLIDDEFENDER”.</p>
 <p><img src="08_flag2.jpg" alt=""></p>
 <p>I didn&rsquo;t find any further information from the DOCX file, so now I moved on to the PDF document.</p>
-<p>I started with passing the file through exiftool, and the document author metadata is displayed as “FLAG3%3A%40BLU3T3AM%240LDI3R”.</p>
+<p>I started with passing the file through <code>exiftool</code>, and the document author metadata is displayed as “FLAG3%3A%40BLU3T3AM%240LDI3R”.</p>
 <p><img src="09_pdf_author.jpg" alt=""></p>
-<p>This text would need to be cleaned up first, so I put the text in to the URL-formatted strings decoder from IT-Tools, and got the cleaned text “FLAG3:@BLU3T3AM$0LDI3R”.</p>
-<p>Finding the filesystem of the disk image took some work. I didn&rsquo;t see anything definitive for the filesystem when using photorec, and trying with fdisk, blkid, and kpartx, didn&rsquo;t provide the information either.
-However, after some web searching, I found an article on askubuntu.com that indicated using cfdisk could be the answer, and it was the answer, displaying ext4 as the filesystem after running</p>
+<p>This text would need to be cleaned up first, so I put the text in to the <code>URL-formatted strings decoder</code> from <code>IT-Tools</code>, and got the cleaned text “FLAG3:@BLU3T3AM$0LDI3R”.</p>
+<p>Finding the filesystem of the disk image took some work. I didn&rsquo;t see anything definitive for the filesystem when using <code>photorec</code>, and trying with <code>fdisk</code>, <code>blkid</code>, and <code>kpartx</code>, didn&rsquo;t provide the information either.
+However, after some web searching, I found an article on <a href="https://askubuntu.com/questions/1279716/how-to-open-dd-file-to-analyze-it">askubuntu.com</a> that indicated using <code>cfdisk</code> could be the answer, and it was the answer, displaying <code>ext4</code> as the filesystem after running</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cfdisk recoverfiles.dd
 </span></span></code></pre></div><p><img src="10_cfdisk.jpg" alt=""></p>
-<p>Finally, as I had done with all the other files, I started with &lsquo;f0016384.mp4&rsquo; by running exiftool against it.</p>
+<p>Finally, as I had done with all the other files, I started with &lsquo;f0016384.mp4&rsquo; by running <code>exiftool</code> against it.</p>
 <p>To find the original filename of the recovered mp4 file, I went back to my first step of this process, when getting some initial data from the image file. The strings gave me several filenames, and the number of files and the extensions of these files, matched the number of files, and extensions recovered.
 Looking at this, I could see that the mp4 file in the original results was named &lsquo;SBTCertifications.mp4&rsquo;.</p>
 <p><img src="11_filename.jpg" alt=""></p>
 <h1 id="challenge-questions-and-answers">Challenge Questions and Answers:</h1>
 <ol>
-<li>What is the text written on the recovered gif image? GoodJobDefender</li>
-<li>Submit Flag1: FLAG1:WELOVEBTLO</li>
-<li>Submit Flag2: FLAG2:ASOLIDDEFENDER</li>
-<li>Submit Flag3: FLAG3:@BLU3T3AM$0LDI3R</li>
-<li>What is the filesystem of the provided disk image? ext4</li>
-<li>What is the original filename of the recovered mp4 file? SBTCertifications.mp4</li>
+<li>What is the text written on the recovered gif image? <code>GoodJobDefender</code></li>
+<li>Submit Flag1: <code>FLAG1:WELOVEBTLO</code></li>
+<li>Submit Flag2: <code>FLAG2:ASOLIDDEFENDER</code></li>
+<li>Submit Flag3: <code>FLAG3:@BLU3T3AM$0LDI3R</code></li>
+<li>What is the filesystem of the provided disk image? <code>ext4</code></li>
+<li>What is the original filename of the recovered mp4 file? <code>SBTCertifications.mp4</code></li>
 </ol>
 <h1 id="references">References:</h1>
 <ul>

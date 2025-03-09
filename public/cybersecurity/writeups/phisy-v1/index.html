@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <title>Phishy v1</title>
+    <meta charset="utf-8">
+    <meta name="description"  content='My personal portfolio and blog' />
+    <meta name="dc.relation" content="http://localhost:1313/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#1A94D2" />
+
+    
+
+    
+    <link rel="stylesheet" href="../../../css/styles.min.css" media="screen">
+ 
+    
+    <link rel='shortcut icon' type='image/x-icon' href='../../../favicon.ico' />
+
+    
+
+
+
+</head><body><div class="jumbotron text-center">
+  <h1 class="display-4">Duma Labs</h1>
+
+  <div class="d-flex justify-content-center">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link  " href="http://localhost:1313/">Home</a>
+          </li>
+
+          
+          
+          
+          <li class="nav-item">
+            <a class='nav-link '
+              href="http://localhost:1313/aboutme/">
+              About Me
+            </a>
+          </li>
+           
+          
+          <li class="nav-item">
+            <a class='nav-link '
+              href="http://localhost:1313/blog/">
+              Blog
+            </a>
+          </li>
+           
+          
+          <li class="nav-item dropdown">
+            <a class='nav-link dropdown-toggle  '
+              href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Cybersecurity
+            </a>
+
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              
+              <li>
+                <a class='dropdown-item  '
+                  href="../../../cybersecurity/certifications/">
+                  Certifications</a>
+              </li>
+              
+              <li>
+                <a class='dropdown-item  '
+                  href="../../../cybersecurity/writeups">
+                  Write-Ups</a>
+              </li>
+              
+            </ul>
+          </li>
+
+           
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div><div id="content">
+
+<div class="container pb-5">
+  <p>This is my write-up for investigation “Phishy v1” lab on Blue Team Labs Online. This lab is retired, so while completing it does not provide points that contribute towards the live leaderboard, but it does count towards achievements and write-ups are permitted to be made publicly available.</p>
+<p>❗
+<strong>WARNING</strong><br>
+The website and kit in this lab is REAL. Exercise caution when interacting with the malicious website and do not enter any sensitive information!</p>
+<p>ℹ️
+<strong>INFO</strong><br>
+As the website referenced is a live website, any references, or links to URLs, IP addresses etc in this write-up have been &lsquo;defanged&rsquo;. I do not hold any responsibility for anyone using these links.</p>
+<h2 id="scenario">Scenario:</h2>
+<p>You have been sent a phishing link. Sadly the threat actor doesn&rsquo;t know who they were dealing with. From only one phishing link find out all you can about the person responsible and bring them to justice.</p>
+<h2 id="process-of-investigation">Process of Investigation:</h2>
+<p>After starting the lab, there was a &lsquo;read me&rsquo; text file on the desktop. The contents of the text file are just stating that a phishing link has been sent, and the task is to find as much out about the person responsible, from using only the URL we have been provided.</p>
+<p>I opened up a web browser, and went to the URL provided, and the site loaded up, it had been made to look like a Microsoft Office 365 file download page.</p>
+<p>Question 1 asks for the source of the mirror that is used on the host domain, and the first art of the tool used, so loading the page in the browser, it looked like many other error pages.</p>
+<p>Loading up the Inspector Developer Tool, I saw comments in the HTML that the page is being mirrored from <code>61[.]221[.]12[.]26/cgi-sys/defaultwebpage[.]cgi</code> by the tool ``HTTrack Website Copier```.</p>
+<p>Question 2 took me back to the phishing landing page to find the full URL of the background image. On this page, right clicking on the background, then opening the image in a new tab, loaded the page and displayed <code>hxxp[://]securedocument[.]net/secure/L0GIN/protected/login/portal/axCBhIt[.]png</code> in the address bar.</p>
+<p>Viewing the page source for the phishing landing page, a form action pointed to <code>jeff.php</code> and with that, I had my answer to question 3.</p>
+<p>Question 4 took a little investigating, as I had to find the zip file for the phishing kit. I didn&rsquo;t see this in the page source for the domain page, or the phishing page, so I started working backwards through each folder in the URL. Eventually, I saw <code>0ff1cePh1sh.zip</code> in the index of <code>/secure/</code>.</p>
+<p>I saved this to a folder on my desktop for investigation, then ran the <code>sha256sum</code> command against it.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sha256sum 0ff1cePh1sh.zip
+</span></span></code></pre></div><p>This returned the hash <code>c778236f4a731411ab2f8494eb5229309713cc7ead44922b4f496a2032fa5b48</code>, giving me my answer.</p>
+<p>To answer question 5 meant going into the php script and looking at the source. Here I identified a reference <code>$recipient</code> being assigned the email address <code>boris[.]smets[@]tfl-uk[.]co</code>.</p>
+<p>Question 6 took a little time to figure out, and being honest, I sort of stumbled upon it. Initially, I thought the string of numbers at the end of the URL were a basic reference number. However, I noticed that this number would be different, depending on which URL I entered, and this number increased each time.
+I then suspected that this may be a time reference, so then checking the landing page source, I didn&rsquo;t see anything, so I went back through each part of the full URL again, checking the source each time.
+The source for <code>/portal/</code> showed a JavaScript function that adds <code>Date().getTime()</code> to the URL.</p>
+<p>Question 7 brought me back to the php file, as I had seen a URL in there, and it would be <code>office.com</code> that would be loaded in the browser, once credentials had been entered.</p>
+<p>Question 8 asked for the variable name that was wrong, causing the site to break, but I noticed a couple of variables that were incorrect. The HTML page had <code>userrr</code> and the PHP file was looking for <code>user1</code> so I set this for my answer.</p>
+<h1 id="challenge-questions-and-answers">Challenge Questions and Answers:</h1>
+<ol>
+<li>What is the email service used by the malicious actor? <code>emkei[.]cz</code></li>
+<li>What is the Reply-To email address? <code>egeja3921[@]pashter[.]com</code></li>
+<li>What is the filetype of the received attachment which helped to continue the investigation? <code>.zip</code></li>
+<li>What is the name of the malicious actor? <code>Pestero Negeja</code></li>
+<li>What is the location of the attacker in this Universe? <code>The Martian Colony, Beside Interplanetary Spaceport</code></li>
+<li>What could be the probable C&amp;C domain to control the attacker’s autonomous bots? <code>pashter[.]com</code></li>
+</ol>
+<h1 id="references">References:</h1>
+<ul>
+<li><a href="https://blueteamlabs.online/">https://blueteamlabs.online/</a></li>
+<li><a href="https://www.securityblue.team/">https://www.securityblue.team/</a></li>
+<li><a href="https://gchq.github.io/CyberChef/">https://gchq.github.io/CyberChef/</a></li>
+</ul>
+
+</div>
+
+
+        </div><footer class="footer fixed-bottom bg-dark">
+
+  <div class="col-12 col-md text-center text-md-center nav-link text-white"><a href=https://www.linkedin.com/in/emma-du-maurier>LinkedIn</a> | <a href=https://github.com/e-duMaurier>GitHub</a></div>
+
+  <div class="row footer-text">
+    <div class="col-12 col-md text-center text-md-left nav-link text-white">© Duma Labs 2025</div>
+  </div>
+
+  
+
+  
+  
+
+  <script src="../../../js/bundle.min.js" defer></script>
+</footer>
+</body>
+</html>
