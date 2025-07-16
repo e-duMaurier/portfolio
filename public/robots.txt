@@ -3,3 +3,8 @@ Disallow: /
 
 User-agent: Google-Extended
 Disallow: /
+
+User-agent: *
+Allow: /
+
+Sitemap: https://dumalabs.uk/sitemap.xml
