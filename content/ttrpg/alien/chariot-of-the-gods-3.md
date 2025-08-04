@@ -18,7 +18,7 @@ Chariot of the Gods.
 
 ## Session:
 **Episode 2:** "Emergence"  
-**Date:** 18 April 2025
+**Date:** 14 May 2025
 
 ---
 

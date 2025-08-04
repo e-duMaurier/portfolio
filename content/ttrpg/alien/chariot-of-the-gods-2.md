@@ -18,7 +18,7 @@ Chariot of the Gods.
 
 ## Session:
 **Episode 3:** "Countdown"  
-**Date:** 14 May 2025
+**Date:** 18 April 2025
 
 ---
 
