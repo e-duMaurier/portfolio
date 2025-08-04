@@ -2,18 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cybersecurity on Duma Labs</title>
-    <link>https://dumalabs.uk/cybersecurity/</link>
+    <link>http://localhost:1313/cybersecurity/</link>
     <description>Recent content in Cybersecurity on Duma Labs</description>
     <generator>Hugo</generator>
     <language>en-uk</language>
-    <lastBuildDate>Fri, 31 Jan 2025 18:49:30 +0000</lastBuildDate>
-    <atom:link href="https://dumalabs.uk/cybersecurity/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Certifications</title>
-      <link>https://dumalabs.uk/cybersecurity/certifications/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://dumalabs.uk/cybersecurity/certifications/</guid>
-      <description>&lt;h1 align=&#34;center&#34;&gt;Certifications&lt;/h1&gt;&#xA;&#xA;&lt;h2 align=&#34;center&#34;&gt;Coming soon(?)&lt;/h2&gt;</description>
-    </item>
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="http://localhost:1313/cybersecurity/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

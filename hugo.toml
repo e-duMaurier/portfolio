@@ -1,44 +1,36 @@
-baseURL = 'https://dumalabs.uk'
+baseURL = 'http://localhost:1313/'
 languageCode = 'en-uk'
 title = 'Duma Labs'
-theme = 'dumalabs'
+theme = 'duma_theme'
 relativeURLS = true
 enableRobotsTXT = true
 pluralizelisttitles = false
-#paginate = 5
 
-[params]
-    author = "Emma du Maurier"
-    description = "My personal portfolio and blog"
-    dateFormat = "02 January, 2006"
+[menu]
+  [[menu.main]]
+    name = "About Me"
+    url = "/about/"
+    weight = 10
+  [[menu.main]]
+    name = "Blog"
+    url = "/blog/"
+    weight = 20
+  [[menu.main]]
+    name = "TTRPG"
+    url = "/ttrpg/"
+    weight = 30
+  [[menu.main]]
+    name = "Cybersecurity"
+    # IMPORTANT: No 'url' here for the parent dropdown item
+    weight = 40
+    identifier = "cybersecurity"
+  [[menu.main]]
+    name = "Photography"
+    url = "/photography/"
+    weight = 50
 
-
-[module]
-    [[module.mounts]]
-      source = "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
-      target = "assets/js/bootstrap.bundle.min.js"
-
-[frontmatter]
-    date = ["date", "publishDate", "lastmod"]
-    lastmod = ["lastmod", ":fileModTime", ":default"]
-
-sectionPagesMenu = "main"
-
-  [menu]
-    [[menu.main]]
-      identifier = "blog"
-      title = "Blog"
-      url = "/blog/"
-      weight = 200
-
-      [[menu.main]]
-      identifier = "cybersecurity"
-      title = "Cybersecurity"
-      url = "/cybersecurity/"
-      weight = 300
-
-      [[menu.main]]
-      identifier = "writeups"
-      title = "Write-Ups"
-      url = "/cybersecurity/writeups"
-      parent = "cybersecurity"
+  [[menu.main]] # This is the child item for Cybersecurity
+    name = "Write-Ups"
+    url = "/cybersecurity/writeups/"
+    parent = "cybersecurity" # This connects it to the "Cybersecurity" parent
+    weight = 10 # Weight within its own dropdown

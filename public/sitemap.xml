@@ -2,61 +2,147 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://dumalabs.uk/tags/btlo/</loc>
-    <lastmod>2025-03-09T13:45:05+00:00</lastmod>
+    <loc>http://localhost:1313/tags/alien/</loc>
+    <lastmod>2025-08-04T19:02:41+01:00</lastmod>
   </url><url>
-    <loc>https://dumalabs.uk/categories/</loc>
-    <lastmod>2025-03-09T13:45:05+00:00</lastmod>
+    <loc>http://localhost:1313/ttrpg/alien/chariot-of-the-gods-1/</loc>
+    <lastmod>2025-08-04T19:02:41+01:00</lastmod>
   </url><url>
-    <loc>https://dumalabs.uk/categories/cybersecurity/</loc>
-    <lastmod>2025-03-09T13:45:05+00:00</lastmod>
+    <loc>http://localhost:1313/ttrpg/alien/chariot-of-the-gods-2/</loc>
+    <lastmod>2025-08-04T19:02:41+01:00</lastmod>
   </url><url>
-    <loc>https://dumalabs.uk/cybersecurity/</loc>
-    <lastmod>2025-03-09T13:45:05+00:00</lastmod>
+    <loc>http://localhost:1313/ttrpg/alien/chariot-of-the-gods-3/</loc>
+    <lastmod>2025-08-04T19:02:41+01:00</lastmod>
   </url><url>
-    <loc>https://dumalabs.uk/tags/labs/</loc>
-    <lastmod>2025-03-09T13:45:05+00:00</lastmod>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2025-08-04T19:02:41+01:00</lastmod>
   </url><url>
-    <loc>https://dumalabs.uk/cybersecurity/writeups/phishy-v1/</loc>
-    <lastmod>2025-03-09T13:45:05+00:00</lastmod>
+    <loc>http://localhost:1313/tags/rpg/</loc>
+    <lastmod>2025-08-04T19:02:41+01:00</lastmod>
   </url><url>
-    <loc>https://dumalabs.uk/tags/</loc>
-    <lastmod>2025-03-09T13:45:05+00:00</lastmod>
+    <loc>http://localhost:1313/ttrpg/</loc>
+    <lastmod>2025-08-04T19:02:41+01:00</lastmod>
   </url><url>
-    <loc>https://dumalabs.uk/categories/write-up/</loc>
-    <lastmod>2025-03-09T13:45:05+00:00</lastmod>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2025-08-04T19:02:41+01:00</lastmod>
   </url><url>
-    <loc>https://dumalabs.uk/cybersecurity/writeups/nonyx/</loc>
-    <lastmod>2025-03-09T13:03:15+00:00</lastmod>
+    <loc>http://localhost:1313/tags/ttrpg/</loc>
+    <lastmod>2025-08-04T19:02:41+01:00</lastmod>
   </url><url>
-    <loc>https://dumalabs.uk/cybersecurity/writeups/employee-of-the-year/</loc>
-    <lastmod>2025-03-09T13:10:08+00:00</lastmod>
+    <loc>http://localhost:1313/photography/</loc>
+    <lastmod>2025-08-02T19:30:00+01:00</lastmod>
   </url><url>
-    <loc>https://dumalabs.uk/tags/htb/</loc>
-    <lastmod>2025-03-09T13:11:58+00:00</lastmod>
+    <loc>http://localhost:1313/about/</loc>
+    <lastmod>2025-08-02T19:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://dumalabs.uk/cybersecurity/writeups/reaper/</loc>
-    <lastmod>2025-03-09T13:11:58+00:00</lastmod>
+    <loc>http://localhost:1313/categories/btlo/</loc>
+    <lastmod>2025-08-02T23:08:03+01:00</lastmod>
   </url><url>
-    <loc>https://dumalabs.uk/cybersecurity/writeups/the-planets-prestige/</loc>
-    <lastmod>2025-03-09T13:13:09+00:00</lastmod>
+    <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2025-08-02T23:08:03+01:00</lastmod>
   </url><url>
-    <loc>https://dumalabs.uk/posts/</loc>
-    <lastmod>2025-01-31T17:19:29+00:00</lastmod>
+    <loc>http://localhost:1313/cybersecurity/</loc>
+    <lastmod>2025-08-02T23:08:03+01:00</lastmod>
   </url><url>
-    <loc>https://dumalabs.uk/</loc>
-    <lastmod>2025-01-31T17:19:29+00:00</lastmod>
+    <loc>http://localhost:1313/categories/cybersercurity/</loc>
+    <lastmod>2025-08-02T23:08:03+01:00</lastmod>
   </url><url>
-    <loc>https://dumalabs.uk/blog/</loc>
-    <lastmod>2024-12-16T22:15:01+00:00</lastmod>
+    <loc>http://localhost:1313/categories/investigation/</loc>
+    <lastmod>2025-08-02T23:07:51+01:00</lastmod>
   </url><url>
-    <loc>https://dumalabs.uk/aboutme/</loc>
-    <lastmod>2025-03-09T10:55:06+00:00</lastmod>
+    <loc>http://localhost:1313/tags/linux-cli/</loc>
+    <lastmod>2025-08-02T23:07:45+01:00</lastmod>
   </url><url>
-    <loc>https://dumalabs.uk/cybersecurity/certifications/</loc>
-    <lastmod>2025-01-31T18:49:30+00:00</lastmod>
+    <loc>http://localhost:1313/cybersecurity/writeups/phishy-v1/</loc>
+    <lastmod>2025-08-02T23:07:45+01:00</lastmod>
   </url><url>
-    <loc>https://dumalabs.uk/cybersecurity/writeups/</loc>
-    <lastmod>2025-01-31T19:24:08+00:00</lastmod>
+    <loc>http://localhost:1313/categories/security-operations/</loc>
+    <lastmod>2025-08-02T23:07:45+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/t1566/</loc>
+    <lastmod>2025-08-02T23:07:45+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/t1598/</loc>
+    <lastmod>2025-08-02T23:07:45+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/text-editor/</loc>
+    <lastmod>2025-08-02T23:07:45+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/web-browser/</loc>
+    <lastmod>2025-08-02T23:07:45+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/cybersecurity/writeups/</loc>
+    <lastmod>2025-08-02T23:08:03+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/writeup/</loc>
+    <lastmod>2025-08-02T23:08:03+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/file/</loc>
+    <lastmod>2025-08-02T23:07:51+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/malfind/</loc>
+    <lastmod>2025-08-02T23:07:51+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/cybersecurity/writeups/nonyx/</loc>
+    <lastmod>2025-08-02T23:07:51+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/reverse-engineering/</loc>
+    <lastmod>2025-08-02T23:07:51+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/strings/</loc>
+    <lastmod>2025-08-02T23:07:51+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/t1014/</loc>
+    <lastmod>2025-08-02T23:07:51+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/volatility-2/</loc>
+    <lastmod>2025-08-02T23:07:51+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/challenge/</loc>
+    <lastmod>2025-08-02T23:08:03+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/ctf-like/</loc>
+    <lastmod>2025-08-02T23:08:03+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/cybersecurity/writeups/employee-of-the-year/</loc>
+    <lastmod>2025-08-02T23:08:03+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/photorec/</loc>
+    <lastmod>2025-08-02T23:08:03+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/scalpel/</loc>
+    <lastmod>2025-08-02T23:08:03+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/cybersercurity/</loc>
+    <lastmod>2025-08-02T23:07:32+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/htb/</loc>
+    <lastmod>2025-08-02T23:07:32+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/htb/</loc>
+    <lastmod>2025-08-02T23:07:32+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/cybersecurity/writeups/reaper/</loc>
+    <lastmod>2025-08-02T23:07:32+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/sherlock/</loc>
+    <lastmod>2025-08-02T23:07:32+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/sherlock/</loc>
+    <lastmod>2025-08-02T23:07:32+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/writeup/</loc>
+    <lastmod>2025-08-02T23:07:32+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/email-client/</loc>
+    <lastmod>2025-08-02T22:11:39+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/ext-editor/</loc>
+    <lastmod>2025-08-02T22:11:39+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/cybersecurity/writeups/the-planets-prestige/</loc>
+    <lastmod>2025-08-02T22:11:39+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/</loc>
   </url>
 </urlset>

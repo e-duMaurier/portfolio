@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>File on Duma Labs</title>
+    <link>http://localhost:1313/tags/file/</link>
+    <description>Recent content in File on Duma Labs</description>
+    <generator>Hugo</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Sat, 02 Aug 2025 23:07:51 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/file/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nonyx</title>
+      <link>http://localhost:1313/cybersecurity/writeups/nonyx/</link>
+      <pubDate>Fri, 15 Nov 2024 18:33:33 +0100</pubDate>
+      <guid>http://localhost:1313/cybersecurity/writeups/nonyx/</guid>
+      <description>&lt;h2 id=&#34;scenario&#34;&gt;Scenario:&lt;/h2&gt;&#xA;&lt;p&gt;Purify Black Energy 2 from Shadowbrook’s digital infrastructure by reverse-engineering the malware’s code.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;process-of-investigation&#34;&gt;Process of Investigation:&lt;/h2&gt;&#xA;&lt;p&gt;When the investigation environment loads, there are a few files and directories already on the desktop. There were directories for the applications CyberChef and volatility, and files &lt;code&gt;readme.txt&lt;/code&gt; file, and &lt;code&gt;BlackEnergy.vnem&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;The readme file was small, and only contained the text:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;WinXPSP2x86 is the profile you must use.  &#xA;It is best to place the output of the vol2 commands to a .txt file for better readability.&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Volatility was provided on the desktop of the investigation, so I started with running &lt;code&gt;volatility&lt;/code&gt; and the &lt;code&gt;pslist&lt;/code&gt; command, with the profile &lt;code&gt;WinXPSP2x86&lt;/code&gt; as suggested by the readme file, against the image file, then saving the output to a text file.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,3 +1,4 @@
 +++
-title = "writeups"
+title = "Write-Ups"
+draft = false
 +++

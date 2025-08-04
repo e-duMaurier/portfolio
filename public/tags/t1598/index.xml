@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>T1598 on Duma Labs</title>
+    <link>http://localhost:1313/tags/t1598/</link>
+    <description>Recent content in T1598 on Duma Labs</description>
+    <generator>Hugo</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Sat, 02 Aug 2025 23:07:45 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/t1598/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Phishy V1</title>
+      <link>http://localhost:1313/cybersecurity/writeups/phishy-v1/</link>
+      <pubDate>Fri, 22 Nov 2024 16:36:33 +0100</pubDate>
+      <guid>http://localhost:1313/cybersecurity/writeups/phishy-v1/</guid>
+      <description>&lt;h2 id=&#34;scenario&#34;&gt;Scenario:&lt;/h2&gt;&#xA;&lt;p&gt;You have been sent a phishing link. Sadly the threat actor doesn’t know who they were dealing with. From only one phishing link find out all you can about the person responsible and bring them to justice.&lt;/p&gt;&#xA;&lt;p&gt;❗ &lt;strong&gt;WARNING&lt;/strong&gt;&#xA;The website and kit in this lab is REAL.&lt;br&gt;&#xA;Exercise caution when interacting with the malicious website and do not enter any sensitive information!&lt;/p&gt;&#xA;&lt;p&gt;ℹ️ &lt;strong&gt;INFO&lt;/strong&gt;&#xA;As the website referenced is a live website, any references, or links to URLs, IP addresses etc in this write-up have been ‘defanged’. I do not hold any responsibility for anyone using these links.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

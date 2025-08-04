@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Duma Labs</title>
-    <link>https://dumalabs.uk/blog/</link>
-    <description>Recent content on Duma Labs</description>
+    <title>Blog on Duma Labs</title>
+    <link>http://localhost:1313/blog/</link>
+    <description>Recent content in Blog on Duma Labs</description>
     <generator>Hugo</generator>
     <language>en-uk</language>
-    <atom:link href="https://dumalabs.uk/blog/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

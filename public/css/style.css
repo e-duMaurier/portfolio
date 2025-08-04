@@ -1,0 +1,51 @@
+/*
+ * Custom styles for My Portfolio Theme
+ * This file loads after Bootstrap, allowing for overrides.
+ */
+
+/* Apply Inter to the entire body for general text */
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Apply Montserrat to all heading elements and Bootstrap's display classes */
+h1, h2, h3, h4, h5, h6,
+.display-1, .display-2, .display-3, .display-4, .display-5, .display-6 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Target ALL nav-links directly to force size, case, and colors */
+a.nav-link,
+.dropdown-item { /* Target dropdown items explicitly too */
+    font-size: 1.1rem !important;
+    text-transform: none !important;  /* Ensure no uppercase */
+}
+
+/* Make navbar brand bigger, similar to a Bootstrap display-6 */
+.navbar .navbar-brand {
+    font-size: 2.5rem !important;
+}
+
+/* Footer Social Icons - Remove Underline on Hover */
+footer .mb-3 a {
+    text-decoration: none !important; /* Remove underline by default */
+}
+
+footer .mb-3 a:hover {
+    text-decoration: none !important; /* Explicitly ensure no underline on hover */
+}
+
+/* Custom Blockquote Styling */
+blockquote {
+    background-color: #f8f9fa; /* Light gray background, similar to Bootstrap's light color */
+    border-left: 5px solid #007bff; /* A prominent blue left border */
+    padding: 15px 20px; /* Padding inside the box */
+    margin-bottom: 1.5rem; /* Space below the blockquote */
+    font-style: italic; /* Optionally make the text italic */
+    color: #495057; /* Slightly darker text for contrast */
+    border-radius: 4px; /* Slightly rounded corners */
+}
+
+blockquote p {
+    margin-bottom: 0; /* Remove default paragraph margin inside blockquote */
+}
