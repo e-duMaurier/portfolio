@@ -8,4 +8,4 @@ User-agent: *
 Allow: /
 Disallow: 404.html
 
-Sitemap: https://dumalabs.uk/sitemap.xml
+Sitemap: {{ "https://dumalabs.uk/sitemap.xml" | absLangURL }}

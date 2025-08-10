@@ -17,7 +17,7 @@ Alien RPG.
 Chariot of the Gods.
 
 ## Session:
-**Episode 2:** "Emergence"  
+**Episode 3:** "Countdown"  
 **Date:** 14 May 2025
 
 ---
